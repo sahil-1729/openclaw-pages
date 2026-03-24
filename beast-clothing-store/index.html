@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEAST Apparel | Unleash Your Edge</title>
+    <style>
+        :root {
+            --primary-bg: #111111; /* Deep black background */
+            --secondary-bg: #1a1a1a; /* Dark grey for sections */
+            --text-color: #f0f0f0; /* Off-white text */
+            --accent-color: #e53e3e; /* Bold red accent */
+            --button-hover: #c53030;
+            --border-color: #333333;
+            --heading-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-decoration: none;
+            letter-spacing: 0.15em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-bg);
+            text-align: center;
+            padding: 150px 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://via.placeholder.com/1500x700/e53e3e/111111?text=BEAST+MODE') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5.5rem;
+            margin-bottom: 25px;
+            color: var(--accent-color);
+            line-height: 1;
+            text-shadow: 0 0 15px rgba(229, 62, 62, 0.7);
+            letter-spacing: 0.2em;
+        }
+
+        .hero p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.7rem;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            opacity: 0.9;
+            color: var(--text-color);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 20px 45px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Featured Collection */
+        .collection {
+            padding: 80px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .collection h2 {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 70px;
+            color: var(--heading-color);
+            letter-spacing: 0.1em;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+        }
+
+        .product-card {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            aspect-ratio: 3/4; /* Taller product images */
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: var(--heading-color);
+            text-transform: uppercase;
+        }
+
+        .product-card p {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--accent-color);
+            padding: 120px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-bg);
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
+        }
+
+        .cta p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 60px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--primary-bg);
+            color: var(--accent-color);
+            padding: 20px 50px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background-color 0.2s, color 0.2s;
+            border: 2px solid var(--primary-bg);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--primary-bg);
+            border-color: var(--primary-bg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .collection h2 {
+                font-size: 2.5rem;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta h2 {
+                font-size: 3rem;
+            }
+            .cta p {
+                font-size: 1.3rem;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 25px;
+            }
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">BEAST</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#collection">Gear</a></li>
+                    <li><a href="#about">Manifesto</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content container">
+            <h1>UNLEASH YOUR EDGE.</h1>
+            <p>BEAST Apparel is more than clothing. It's a statement. Designed for those who defy convention and conquer their world.</p>
+            <a href="#collection" class="btn-primary">Explore The Collection</a>
+        </div>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2>THE NEW DOMINANCE</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/e53e3e/111111?text=ALPHA+HOODIE" alt="Alpha Hoodie">
+                    <h3>ALPHA HOODIE</h3>
+                    <p>$99.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/e53e3e/111111?text=TACTICAL+PANTS" alt="Tactical Pants">
+                    <h3>TACTICAL PANTS</h3>
+                    <p>$110.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/e53e3e/111111?text=STRIKE+TEE" alt="Strike Tee">
+                    <h3>STRIKE TEE</h3>
+                    <p>$45.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/e53e3e/111111?text=OUTLAW+JACKET" alt="Outlaw Jacket">
+                    <h3>OUTLAW JACKET</h3>
+                    <p>$180.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>DEFY. CONQUER. WEAR.</h2>
+            <p>Join the movement. Elevate your presence with apparel built for the bold.</p>
+            <a href="#collection" class="btn-secondary">Claim Your Style</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 BEAST Apparel. All rights reserved. Generated by OpenClaw for Sahil.
+    </footer>
+
+</body>
+</html>
