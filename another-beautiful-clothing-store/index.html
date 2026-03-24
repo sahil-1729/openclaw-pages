@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance Apparel | Timeless Fashion</title>
+    <style>
+        :root {
+            --primary-bg: #fdfcfb; /* Very light, off-white background */
+            --secondary-bg: #ffffff; /* Pure white card background */
+            --text-color: #334155; /* Muted dark blue-gray text */
+            --accent-color: #d8b4fe; /* Soft lavender/purple accent */
+            --button-hover: #c084fc;
+            --border-color: #f1f5f9; /* Light border */
+            --heading-color: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lora', serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--secondary-bg);
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://via.placeholder.com/1500x500/d8b4fe/ffffff?text=Elegant+Fashion') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-bg);
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Featured Products */
+        .featured-products {
+            padding: 40px 0;
+        }
+
+        .featured-products h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--heading-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--secondary-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--heading-color);
+        }
+
+        .product-card p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 40px 0;
+            background-color: var(--secondary-bg);
+            margin-top: 40px;
+        }
+
+        .categories h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--heading-color);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-card h3 {
+            font-size: 1.3rem;
+            color: var(--heading-color);
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--accent-color);
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--secondary-bg);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+            border: 2px solid var(--secondary-bg);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary-bg);
+            border-color: var(--secondary-bg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .product-grid, .category-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+            .cta p {
+                font-size: 1.2rem;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Elegance Apparel</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#categories">Collections</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content container">
+            <h1>Discover Your Signature Style.</h1>
+            <p>Step into a world of refined fashion. Elegance Apparel offers timeless pieces crafted for the modern individual.</p>
+            <a href="#products" class="btn-primary">Explore Collections</a>
+        </div>
+    </section>
+
+    <section id="products" class="featured-products">
+        <div class="container">
+            <h2>Curated Selections</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300/d8b4fe/ffffff?text=Blouse" alt="Silk Blouse">
+                    <h3>Silk Blouse</h3>
+                    <p>$75.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300/d8b4fe/ffffff?text=Trousers" alt="Tailored Trousers">
+                    <h3>Tailored Trousers</h3>
+                    <p>$90.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300/d8b4fe/ffffff?text=Dress" alt="Evening Dress">
+                    <h3>Evening Gown</h3>
+                    <p>$180.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300/d8b4fe/ffffff?text=Cardigan" alt="Cashmere Cardigan">
+                    <h3>Cashmere Cardigan</h3>
+                    <p>$115.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2>Explore Our Ranges</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3>Women's Collection</h3>
+                </div>
+                <div class="category-card">
+                    <h3>Men's Essentials</h3>
+                </div>
+                <div class="category-card">
+                    <h3>Accessories</h3>
+                </div>
+                <div class="category-card">
+                    <h3>Seasonal Edit</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Refine Your Wardrobe Today.</h2>
+            <p>Experience the blend of luxury and comfort. New arrivals every week.</p>
+            <a href="#" class="btn-secondary">Shop Elegance Now</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Elegance Apparel. All rights reserved. Generated by OpenClaw for Sahil.
+    </footer>
+
+</body>
+</html>
