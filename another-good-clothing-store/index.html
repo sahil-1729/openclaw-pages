@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stitch & Style | Modern Essentials</title>
+    <style>
+        :root {
+            --primary-bg: #e0e7ff; /* Light blueish-gray background */
+            --secondary-bg: #ffffff; /* White card background */
+            --text-color: #3f3f46; /* Slate gray text */
+            --accent-color: #6366f1; /* Indigo accent */
+            --button-hover: #4f46e5;
+            --border-color: #d1d5db; /* Light gray border */
+            --heading-color: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--secondary-bg);
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://via.placeholder.com/1500x600/6366f1/ffffff?text=Modern+Essentials') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            color: var(--heading-color);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-bg);
+            padding: 18px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Featured Collection */
+        .collection {
+            padding: 60px 0;
+        }
+
+        .collection h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: var(--heading-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background-color: var(--secondary-bg);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            aspect-ratio: 3/4; /* Taller product images */
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+            color: var(--heading-color);
+        }
+
+        .product-card p {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--accent-color);
+            padding: 100px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            color: var(--secondary-bg);
+            margin-bottom: 25px;
+        }
+
+        .cta p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
+            padding: 18px 45px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: background-color 0.2s, color 0.2s;
+            border: 2px solid var(--secondary-bg);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary-bg);
+            border-color: var(--secondary-bg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .collection h2 {
+                font-size: 2.2rem;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta h2 {
+                font-size: 2.5rem;
+            }
+            .cta p {
+                font-size: 1.2rem;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Stitch & Style</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#collection">Shop All</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content container">
+            <h1>Effortless Style, Everyday Comfort.</h1>
+            <p>Stitch & Style brings you meticulously crafted modern essentials designed for life's adventures.</p>
+            <a href="#collection" class="btn-primary">Shop The Collection</a>
+        </div>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2>Our Latest Drops</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x400/6366f1/ffffff?text=Basic+Tee" alt="Premium Basic Tee">
+                    <h3>Premium Basic Tee</h3>
+                    <p>$35.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x400/6366f1/ffffff?text=Sweatshirt" alt="Comfy Sweatshirt">
+                    <h3>Organic Cotton Sweatshirt</h3>
+                    <p>$70.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x400/6366f1/ffffff?text=Chinos" alt="Versatile Chinos">
+                    <h3>Slim-Fit Chinos</h3>
+                    <p>$60.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x400/6366f1/ffffff?text=Jacket" alt="Lightweight Jacket">
+                    <h3>Utility Jacket</h3>
+                    <p>$95.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Dress Smarter, Not Harder.</h2>
+            <p>Quality apparel that blends seamlessly into your lifestyle. Discover your new favorites.</p>
+            <a href="#collection" class="btn-secondary">Find Your Fit</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Stitch & Style. All rights reserved. Generated by OpenClaw for Sahil.
+    </footer>
+
+</body>
+</html>
