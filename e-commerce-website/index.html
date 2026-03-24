@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your E-commerce Store | Shop Online</title>
+    <style>
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e293b;
+            --text-color: #f8fafc;
+            --accent-color: #f97316;
+            --button-hover: #ea580c;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--secondary-bg);
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--accent-color), #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--accent-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--accent-color);
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            color: var(--primary-bg);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.35rem;
+            color: rgba(15, 23, 42, 0.9);
+            margin-bottom: 40px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--primary-bg);
+            color: var(--accent-color);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+            border: 2px solid var(--primary-bg);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--primary-bg);
+            border-color: var(--primary-bg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+            .cta p {
+                font-size: 1.1rem;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">YourStore</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Discover Your Next Favorite Product</h1>
+            <p>Explore a curated collection of high-quality items designed to enhance your everyday life. Shop with confidence and find exactly what you need.</p>
+            <a href="#products" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Quality Products</h3>
+                    <p>Every item is hand-picked for its superior craftsmanship and durability, ensuring you get the best value.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Fast Shipping</h3>
+                    <p>We partner with top carriers to ensure your order arrives quickly and safely at your doorstep.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Secure Payments</h3>
+                    <p>Shop with peace of mind thanks to our encrypted and secure payment gateways.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Exceptional Support</h3>
+                    <p>Our dedicated customer service team is always ready to assist you with any questions or concerns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Ready to Start Shopping?</h2>
+            <p>Browse our extensive catalog and find amazing deals on products you'll love. Your perfect purchase is just a click away!</p>
+            <a href="#products" class="btn-secondary">Explore Products</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 YourStore. All rights reserved. Generated by OpenClaw for Sahil.
+    </footer>
+
+</body>
+</html>
