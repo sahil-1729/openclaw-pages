@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Apparel | Minimalist Style for Modern Living</title>
+    <style>
+        :root {
+            --primary-bg: #f9fafa; /* Very light, clean off-white */
+            --secondary-bg: #ffffff; /* Pure white cards */
+            --text-color: #333;
+            --accent-color: #60a5fa; /* Soft blue accent */
+            --alt-accent: #a78bfa; /* Soft purple accent */
+            --button-primary: #3b82f6;
+            --button-hover: #2563eb;
+            --border-color: #e5e7eb;
+            --heading-color: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--secondary-bg);
+            text-align: center;
+            padding: 150px 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://via.placeholder.com/1500x700/60a5fa/f9fafa?text=Clean+UI+Style') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            color: var(--heading-color);
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+        }
+
+        .hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            opacity: 0.85;
+            color: var(--text-color);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-bg);
+            padding: 20px 45px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background-color 0.2s;
+            border: 3px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--alt-accent);
+            border-color: var(--alt-accent);
+        }
+
+        /* Featured Collection */
+        .collection {
+            padding: 80px 0;
+        }
+
+        .collection h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 70px;
+            color: var(--heading-color);
+            letter-spacing: 0.02em;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+        }
+
+        .product-card {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            aspect-ratio: 3/4; /* Taller product images */
+            object-fit: cover;
+            border: 3px solid var(--alt-accent);
+        }
+
+        .product-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+            color: var(--heading-color);
+        }
+
+        .product-card p {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--accent-color);
+            padding: 120px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-bg);
+            margin-bottom: 30px;
+        }
+
+        .cta p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 60px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
+            padding: 20px 50px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background-color 0.2s, color 0.2s;
+            border: 3px solid var(--secondary-bg);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .collection h2 {
+                font-size: 2.5rem;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta h2 {
+                font-size: 3rem;
+            }
+            .cta p {
+                font-size: 1.3rem;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 25px;
+            }
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Aura Apparel</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#collection">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content container">
+            <h1>Effortless. Modern. You.</h1>
+            <p>Discover clothing that feels as good as it looks. Clean lines, quality fabrics, and a fresh aesthetic for your everyday.</p>
+            <a href="#collection" class="btn-primary">Shop New Arrivals</a>
+        </div>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2>Essentials for the Modern Wardrobe</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/60a5fa/f9fafa?text=Linen+Shirt" alt="Linen Shirt">
+                    <h3>Organic Linen Shirt</h3>
+                    <p>$75.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/60a5fa/f9fafa?text=Wide+Leg+Pants" alt="Wide Leg Trousers">
+                    <h3>Relaxed Fit Trousers</h3>
+                    <p>$85.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/60a5fa/f9fafa?text=Minimalist+Dress" alt="Minimalist Midi Dress">
+                    <h3>Sleek Midi Dress</h3>
+                    <p>$95.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/60a5fa/f9fafa?text=Light+Jacket" alt="Lightweight Jacket">
+                    <h3>Essential Anorak Jacket</h3>
+                    <p>$110.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Elevate Your Everyday.</h2>
+            <p>Experience style that’s simple, refined, and effortlessly chic.</p>
+            <a href="#collection" class="btn-secondary">Discover Your Aura</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Aura Apparel. All rights reserved. Generated by OpenClaw for Sahil.
+    </footer>
+
+</body>
+</html>
