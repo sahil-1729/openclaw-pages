@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90s Minimal | Clean Retro Apparel</title>
+    <style>
+        :root {
+            --primary-bg: #f0f4f8; /* Light, cool gray-blue */
+            --secondary-bg: #ffffff; /* White cards */
+            --text-color: #2d3748; /* Dark, cool text */
+            --accent-color: #ff6b6b; /* Soft coral accent */
+            --alt-accent: #4299e1; /* A calming blue */
+            --button-primary: #3182ce;
+            --button-hover: #2563eb;
+            --border-color: #e2e8f0;
+            --heading-color: #1a202c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--secondary-bg);
+            text-align: center;
+            padding: 150px 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--accent-color);
+            border-bottom: 5px solid var(--alt-accent);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://via.placeholder.com/1500x700/ff6b6b/f0f4f8?text=90s+Clean+Style') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 4rem;
+            margin-bottom: 25px;
+            color: var(--heading-color);
+            line-height: 1.1;
+            text-shadow: 1px 1px 0 var(--secondary-accent);
+            letter-spacing: 0.03em;
+        }
+
+        .hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            opacity: 0.9;
+            color: var(--text-color);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--button-primary);
+            color: var(--secondary-bg);
+            padding: 20px 45px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background-color 0.2s;
+            border: 3px solid var(--button-primary);
+            box-shadow: 4px 4px 0 0px var(--accent-color);
+            position: relative;
+            top: 0;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+            top: 2px;
+            box-shadow: 2px 2px 0 0px var(--accent-color);
+        }
+
+        /* Featured Collection */
+        .collection {
+            padding: 80px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .collection h2 {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            margin-bottom: 70px;
+            color: var(--accent-color);
+            letter-spacing: 0.03em;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+        }
+
+        .product-card {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            aspect-ratio: 3/4; /* Taller product images */
+            object-fit: cover;
+            border: 3px solid var(--alt-accent);
+        }
+
+        .product-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--heading-color);
+            text-transform: uppercase;
+        }
+
+        .product-card p {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--accent-color);
+            padding: 120px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 5px solid var(--alt-accent);
+        }
+
+        .cta h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 4rem;
+            color: var(--primary-bg);
+            margin-bottom: 30px;
+            letter-spacing: 0.03em;
+        }
+
+        .cta p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 60px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
+            padding: 20px 50px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background-color 0.2s, color 0.2s;
+            border: 3px solid var(--secondary-bg);
+            box-shadow: 4px 4px 0 0px var(--button-primary);
+            position: relative;
+            top: 0;
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary-bg);
+            border-color: var(--secondary-bg);
+            top: 2px;
+            box-shadow: 2px 2px 0 0px var(--button-primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .collection h2 {
+                font-size: 2.5rem;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta h2 {
+                font-size: 3rem;
+            }
+            .cta p {
+                font-size: 1.3rem;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 25px;
+            }
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">90s Rewind Clean</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#collection">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content container">
+            <h1>FRESH STYLES, THEN AND NOW.</h1>
+            <p>Experience the clean, cool aesthetic of the 90s. Minimalist designs meet timeless appeal.</p>
+            <a href="#collection" class="btn-primary">Discover Minimalism</a>
+        </div>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2>ESSENTIALS FROM THE DECADE</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/ff6b6b/f0f4f8?text=Minimalist+Tee" alt="Minimalist Tee">
+                    <h3>Clean Basic Tee</h3>
+                    <p>$30.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/ff6b6b/f0f4f8?text=Mom+Jeans" alt="Mom Jeans">
+                    <h3>High-Waisted Mom Jeans</h3>
+                    <p>$50.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/ff6b6b/f0f4f8?text=Windbreaker" alt="Lightweight Windbreaker">
+                    <h3>Lightweight Windbreaker</h3>
+                    <p>$70.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/320x420/ff6b6b/f0f4f8?text=Choker" alt="Simple Choker Necklace">
+                    <h3>Classic Choker</h3>
+                    <p>$15.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>KEEP IT SIMPLE, KEEP IT 90s.</h2>
+            <p>Discover understated styles that capture the clean, cool essence of the decade.</p>
+            <a href="#collection" class="btn-secondary">Explore Clean Styles</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 90s Minimal. All rights reserved. Generated by OpenClaw for Sahil.
+    </footer>
+
+</body>
+</html>
